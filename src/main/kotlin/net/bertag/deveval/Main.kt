@@ -22,7 +22,8 @@ const val LICENSE_PATH = "LICENSE"
 fun main(args: Array<String>) {
     if (args.size < 3) {
         System.err.println("At least 3 arguments are expected (username, password, organization).")
-        System.err.println("Usage: ")
+        System.err.println(
+                "Usage: java -jar deveval.jar USERNAME PASSWORD ORGANIZATION [LICENSE_TYPE] [POPULATE_TEST_REPOS]")
         exitProcess(1)
     }
 
@@ -32,6 +33,9 @@ fun main(args: Array<String>) {
     val licenseName = if (args.size > 3) args[3] else DEFAULT_LICENSE_NAME
     val populateOrg = if (args.size > 4) args[4].toBoolean() else false
     val client = GithubOrgClient(username, password, organization)
+
+    println("Checking organization \"$organization\" as user \"$username\" for licenses.")
+    println("Repositories with no license will have a pull request created to add a(n) \"$licenseName\" license.")
 
     val testRepos = arrayOf(
             Pair("repo1", null),
@@ -50,6 +54,7 @@ fun main(args: Array<String>) {
     }
     exitProcess(2)
     */
+
 
     // Populate the organization with some repositories if requested by the user. Repositories `repo1` and `repo3` will
     // not have a license, but `repo2` will.
