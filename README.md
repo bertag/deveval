@@ -4,6 +4,7 @@ This Kotlin program uses the Github API to examine the repositories in a GitHub 
 
 ## Installation and Usage
 
+- Install Java 8 or higher: http://openjdk.java.net/install/
 - Clone this repository by running `git clone https://github.com/bertag/deveval.git`.
 - Compile the program by running `./gradlew build` from the project root directory. *The resulting compiled JAR file will be located at `build/libs/deveval-1.0.0.jar` (relative to the project root directory).*
 - To execute the program on an already populated organization, run the following command: `java -jar build/libs/deveval-1.0.0.jar USERNAME PASSWORD ORGANIZATION [LICENSE_TYPE] [PREPOPULATE]`
